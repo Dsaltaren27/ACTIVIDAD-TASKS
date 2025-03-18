@@ -1,0 +1,32 @@
+<ion-card style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 10px; margin: 15px;">
+
+  <ion-card-header style="background-color: #f8f9fa; padding: 15px; border-bottom: 1px solid #e0e0e0;">
+    <ion-card-title *ngIf="!Editable" style="font-size: 20px; font-weight: bold; margin: 0;">{{ task.title }}</ion-card-title>
+    <ion-input *ngIf="Editable" [(ngModel)]="editableTask.title" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></ion-input>
+  </ion-card-header>
+
+  <ion-card-content style="padding: 15px;">
+    <div>
+      <p *ngIf="!Editable" style="margin: 10px 0;"><strong>Descripción:</strong> {{ task.description }}</p>
+      <ion-textarea *ngIf="Editable" [(ngModel)]="editableTask.description" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></ion-textarea>
+
+      <p *ngIf="!Editable" style="margin: 10px 0;"><strong>Fecha:</strong> {{ task.date }}</p>
+      <ion-datetime *ngIf="Editable" [(ngModel)]="editableTask.date" displayFormat="YYYY-MM-DD" style="width: 100%; padding: 10px;"></ion-datetime>
+
+      <ion-item lines="none" style="margin-top: 15px; display: flex; align-items: center;">
+        <ion-label style="margin-right: 10px;">Estado</ion-label>
+        <ion-toggle [checked]="task.done" (ionChange)="CambiarEstadoTarea($event)"></ion-toggle>
+      </ion-item>
+    </div>
+    <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+      <ion-button (click)="Editar()" fill="clear" style="color: #007bff;">
+        <ion-icon *ngIf="!Editable" name="create-outline"></ion-icon>
+        <ion-icon *ngIf="Editable" name="checkmark-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="borrarTarea(task)" fill="clear" color="danger">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-content>
+
+</ion-card>

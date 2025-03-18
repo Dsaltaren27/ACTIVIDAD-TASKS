@@ -1,0 +1,14 @@
+<ion-grid class="task-grid">
+  <ion-row class="task-row">
+    <ion-col 
+      *ngFor="let task of tasks" 
+      size-lg="4" 
+      size-md="6" 
+      size-sm="12" 
+      size="12"
+      class="task-col">
+        <app-to-do-task [task]="task"></app-to-do-task>
+   
+    </ion-col>
+  </ion-row>
+</ion-grid>

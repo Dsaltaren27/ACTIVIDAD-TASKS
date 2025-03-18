@@ -1,0 +1,30 @@
+.task-grid-enhanced {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+.task-row-enhanced {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+}
+
+.task-col-enhanced {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s;
+}
+
+.task-col-enhanced:hover {
+  transform: translateY(-5px); 
+}
+
+.task-container-enhanced {
+  background-color: #f8f9fa; 
+  padding: 20px;
+  text-align: center; 
+  border-radius: 8px;
+  border: 1px solid #e0e0e0; 
+}
